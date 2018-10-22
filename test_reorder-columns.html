@@ -1,0 +1,96 @@
+<html>
+
+	<head>
+		<title>demo</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="" />
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+
+		<link rel="stylesheet" type="text/css" href="bootstrap-table/bootstrap-table.css" />
+		<link rel="stylesheet" type="text/css" href="bootstrap/css/dragtable.css"/>
+		<link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+
+
+	</head>
+
+	<body style="overflow: hidden;background: #FFFFFF;">
+		<div class="container">
+			<table id="table2" data-reorderable-columns="true">
+        </table>
+		</div>
+		<script src="bootstrap/js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="bootstrap/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="bootstrap-table/bootstrap-table2.js" type="text/javascript" charset="utf-8"></script>
+		<script src="bootstrap-table/locale/bootstrap-table-zh-CN.js" type="text/javascript" charset="utf-8"></script>
+
+		<script src="bootstrap-table/extensions/reorder-columns/bootstrap-table-reorder-columns.js" type="text/javascript" charset="utf-8"></script>
+		<script src="jquery-ui-1.11.4.custom/jquery-ui.js" type="text/javascript" charset="utf-8"></script>
+
+		<script src="bootstrap/js/jquery.dragtable.js" type="text/javascript" charset="utf-8"></script>
+
+		<script src="jquery-ui-1.11.4.custom/jquery-ui.js" type="text/javascript" charset="utf-8"></script>
+
+		<script type="text/javascript">
+			$(document).ready(function() {
+
+				//表格插件(表一)开始
+				$('#table2').bootstrapTable({
+					url:"./json/data1.json",
+					method: 'get',                      //请求方式（*）
+		            toolbar: '#toolbar',                //工具按钮用哪个容器
+		            striped: false,                      //是否显示行间隔色
+		            cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+		            pagination: true,                   //是否显示分页（*）
+		            sortable: false,                     //是否启用排序
+		            sortOrder: "asc",                   //排序方式
+		//          queryParams: oTableInit.queryParams,//传递参数（*）
+		            sidePagination: "client",           //分页方式：client客户端分页，server服务端分页（*）
+		            pageNumber:1,                       //初始化加载第一页，默认第一页
+		            pageSize: 50,                       //每页的记录行数（*）
+		            pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）
+		            search: false,                       //是否显示表格搜索，此搜索是客户端搜索，不会进服务端，所以，个人感觉意义不大
+		            strictSearch: true,
+		            showColumns: true,                  //是否显示所有的列
+		            showRefresh: true,                  //是否显示刷新按钮
+		            minimumCountColumns: 2,             //最少允许的列数
+		            clickToSelect: true,                //是否启用点击选中行
+		            height: 390,                        //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
+		            uniqueId: "Name",                     //每一行的唯一标识，一般为主键列
+		            showToggle:true,                    //是否显示详细视图和列表视图的切换按钮
+		            cardView: false,                    //是否显示详细视图
+		            detailView: false,
+		            sortOrder: "asc",
+		            sortable:true,
+		            columns:[{
+		                field: 'id',
+		                title: 'ID',
+		                align:'center',
+		                sortable: true,
+		                width:'20%'
+		            },{
+		                field: 'name',
+		                title: 'name-item',
+		                align:'center',
+		                sortable: true,
+		                width:'40%'
+		            },{
+		                field: 'price',
+		                title: 'price-item',
+		                sortable: true,
+		                align:'center',
+//		                width:'40%'
+		            }]
+
+				});
+
+			});
+		</script>
+
+
+
+	</body>
+
+</html>
